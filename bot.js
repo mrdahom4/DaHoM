@@ -51,29 +51,46 @@ client.user.setPresence({
     });
 });
 
-const devs = ['487727064192122880' , '' , '' , ''];
 const adminprefix = "//";
+const developers = ['487727064192122880'];
+
+console.log("DaHoM");
+
+client.on('ready', () => {
+    console.log(`Logged as ${client.user.tag}By : DaHoM`)
+})
+
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
-      if (!devs.includes(message.author.id)) return;
-      
+      if (!developers.includes(message.author.id)) return;
   if (message.content.startsWith(adminprefix + 'ply')) {
     client.user.setGame(argresult);
-      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
+      message.channel.send(`تم تغيير البلاينق الى   ${argresult}`)
   } else 
+     if (message.content === (adminprefix + "leave")) {
+    message.guild.leave();        
+  } else  
   if (message.content.startsWith(adminprefix + 'wt')) {
   client.user.setActivity(argresult, {type:'WATCHING'});
-      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
+      message.channel.send(`تَم تغيير الواتشينق الى   ${argresult}`)
   } else 
   if (message.content.startsWith(adminprefix + 'ls')) {
   client.user.setActivity(argresult , {type:'LISTENING'});
-      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
-  } else 
+      message.channel.send(`تَم تغيير الليسينينق الى   ${argresult}`)
+  } else
   if (message.content.startsWith(adminprefix + 'st')) {
-    client.user.setGame(argresult, "https://www.twitch.tv/idk");
-      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
+    client.user.setGame(argresult, "https://www.twitch.tv/Randy");
+      message.channel.send(`تم تغييرك حالتك بالتويتش الى   ${argresult}`)
   }
-  });
+  if (message.content.startsWith(adminprefix + 'sn')) {
+  client.user.setUsername(argresult).then
+      message.channel.send(`جاري تغيير الأسم لـ ..${argresult} `)
+} else
+if (message.content.startsWith(adminprefix + 'sa')) {
+  client.user.setAvatar(argresult);
+    message.channel.send(`جاري تغيير الأفتار... : `);
+}
+});
 
   
 
