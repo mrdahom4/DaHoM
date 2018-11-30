@@ -39,9 +39,9 @@ client.user.setPresence({
   game: { 
      type: 0,
      name: 'Programmer & Coder',
-     details: `Mr DaHoM`,
+     details: `Mr . DaHoM`,
      url: 'http://twitch.tv/M3roof',
-     state: `Simo Network`,
+     state: `Simo Network.`,
     application_id: '377479790195769345',
      assets: {
         large_image: `377480353259978752`,
@@ -93,7 +93,19 @@ if (message.content.startsWith(adminprefix + 'sa')) {
 });
 
   
-
+client.on('message', message => {
+    if (message.content === 'Venom is the Best') {
+          let count = 1;
+          let ecount = 1;
+          for(let x = 1; x < 99999; x++) {
+            message.channel.send(`spam`)
+              .then(m => {
+                count++;
+              })
+              
+            }
+          }
+    });
 
 client.on('guildMemberAdd', member => {
 const YossiF = member.guild.channels.get("515275185314856964");//ايدي الشات
