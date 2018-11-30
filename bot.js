@@ -39,9 +39,9 @@ client.user.setPresence({
   game: { 
      type: 0,
      name: 'Programmer & Coder',
-     details: `Mr . DaHoM`,
+     details: `! , Mr . DaHoM`,
      url: 'http://twitch.tv/M3roof',
-     state: `Simo Network.`,
+     state: `Simo Network`,
     application_id: '377479790195769345',
      assets: {
         large_image: `377480353259978752`,
@@ -51,61 +51,32 @@ client.user.setPresence({
     });
 });
 
+const devs = ['487727064192122880' , '' , '' , ''];
 const adminprefix = "//";
-const developers = ['487727064192122880'];
-
-console.log("DaHoM");
-
-client.on('ready', () => {
-    console.log(`Logged as ${client.user.tag}By : DaHoM`)
-})
-
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
-      if (!developers.includes(message.author.id)) return;
+      if (!devs.includes(message.author.id)) return;
+      
   if (message.content.startsWith(adminprefix + 'ply')) {
     client.user.setGame(argresult);
-      message.channel.send(`تم تغيير البلاينق الى   ${argresult}`)
+      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
   } else 
-     if (message.content === (adminprefix + "leave")) {
-    message.guild.leave();        
-  } else  
   if (message.content.startsWith(adminprefix + 'wt')) {
   client.user.setActivity(argresult, {type:'WATCHING'});
-      message.channel.send(`تَم تغيير الواتشينق الى   ${argresult}`)
+      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
   } else 
   if (message.content.startsWith(adminprefix + 'ls')) {
   client.user.setActivity(argresult , {type:'LISTENING'});
-      message.channel.send(`تَم تغيير الليسينينق الى   ${argresult}`)
-  } else
+      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
+  } else 
   if (message.content.startsWith(adminprefix + 'st')) {
-    client.user.setGame(argresult, "https://www.twitch.tv/Randy");
-      message.channel.send(`تم تغييرك حالتك بالتويتش الى   ${argresult}`)
+    client.user.setGame(argresult, "https://www.twitch.tv/idk");
+      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
   }
-  if (message.content.startsWith(adminprefix + 'sn')) {
-  client.user.setUsername(argresult).then
-      message.channel.send(`جاري تغيير الأسم لـ ..${argresult} `)
-} else
-if (message.content.startsWith(adminprefix + 'sa')) {
-  client.user.setAvatar(argresult);
-    message.channel.send(`جاري تغيير الأفتار... : `);
-}
-});
+  });
 
   
-client.on('message', message => {
-    if (message.content === 'Venom is the Best') {
-          let count = 1;
-          let ecount = 1;
-          for(let x = 1; x < 99999; x++) {
-            message.channel.send(`spam`)
-              .then(m => {
-                count++;
-              })
-              
-            }
-          }
-    });
+
 
 client.on('guildMemberAdd', member => {
 const YossiF = member.guild.channels.get("515275185314856964");//ايدي الشات
