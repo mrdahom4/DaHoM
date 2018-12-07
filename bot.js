@@ -86,12 +86,17 @@ YossiF.send(`** .# Welcome To Simo Network , :black_heart: **`);
 }
 });
 
-client.on('guildMemberAdd', member => {
-const YossiF = member.guild.channels.get("514832735676923934");//ايدي الشات
-if(!YossiF) return;
-if(YossiF) {
-YossiF.send(`** .# Welcome To Codes Server , :black_heart: **`);          
-}
+client.on("message", message => {
+
+            if (message.content.startsWith("abcdefg")) {
+  let args = message.content.split(" ").slice(1);
+  var argresult = args.join(' '); 
+  message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
+ m.send(`${argresult}\n ${m}`);
+})
+ message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`); 
+ message.delete(); 
+};     
 });
 
 client.on('message', msg => {
